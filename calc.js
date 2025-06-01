@@ -21,4 +21,16 @@ function calculateResult() {
     display.value = 'Error';
   }
 }
+document.addEventListener('keydown', function(event) {
+  const key = event.key;
+  if (!isNaN(key) || "+-*/.".includes(key)) {
+    appendCharacter(key);
+  } else if (key === "Enter") {
+    calculateResult();
+  } else if (key === "Backspace") {
+    deleteChar();
+  } else if (key.toLowerCase() === "c") {
+    clearDisplay();
+  }
+});
 
